@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+const title='holaMundo';
+const tags = ['astro','bloguear','exitos','contratiempo'];
+export function getStaticPaths() {
+  return [
+    { params: { id: '1' } },
+    { params: { id: '2' } },
+    { params: { id: '3' } }
+  ];
+}
+
+const { id } = Astro.params;
+---
+<h1>{id}</h1>
+<BaseLayout pageTitle={title}>
+    <ul>
+     {tags.map((tag) => <a>{tag}</a><br/>)}
+    </ul>
+</BaseLayout>
+<!--
+---
+
+export async function getStaticPaths () {
+    
+    return [];
+};
+
+---
+    <BaseLayout pageTitle="TAGS"></BaseLayout>
+    -->
