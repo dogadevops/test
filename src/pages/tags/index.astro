@@ -4,18 +4,17 @@ const title='holaMundo';
 const tags = ['astro','bloguear','exitos','contratiempo'];
 export function getStaticPaths() {
   return [
-    { params: { id: '1' } },
-    { params: { id: '2' } },
-    { params: { id: '3' } }
+    { params: { tag: '1' } },
+    { params: { tag: '2' } },
+    { params: { tag: '3' } }
   ];
 }
-
-const { id } = Astro.params;
+const { tag } = Astro.params;
 ---
-<h1>{id}</h1>
+<h1>{tag}</h1>
 <BaseLayout pageTitle={title}>
     <ul>
-     {tags.map((tag) => <a>{tag}</a><br/>)}
+      {tags.map((tag) => <a>{tag}</a><br/>)}
     </ul>
 </BaseLayout>
 <!--
